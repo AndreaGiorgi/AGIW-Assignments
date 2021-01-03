@@ -2,7 +2,7 @@
 
 # Word
 ~$*.doc*
-*.docx
+
 
 # Word Auto Backup File
 Backup of *.doc*
@@ -14,7 +14,7 @@ Backup of *.doc*
 *.xlk
 
 # PowerPoint
-*.ppt*
+~$*.ppt*
 
 # Visio autosave temporary files
 *.~vsd*
