@@ -1,0 +1,91 @@
+<html dir="ltr" data-application="firefox" lang="en-US"><head>
+    <title data-i18n="firstRun_title">Installation Successful!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="skin/web.css" rel="stylesheet">
+    <link type="text/css" href="skin/fonts/font.css" rel="stylesheet">
+    <link type="text/css" href="skin/first-run.css" rel="stylesheet">
+    <script src="polyfill.js"></script>
+    <script src="ext/common.js"></script>
+    <script src="ext/content.js"></script>
+    <script src="common.js"></script>
+    <script src="i18n.js"></script>
+    <script src="first-run.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="navbar-container">
+        <a id="navbar-logo" data-doclink="adblock_plus" target="_blank" href="https://adblockplus.org/redirect?link=adblock_plus&amp;lang=en-US">
+          <img src="skin/icons/abp-full-logo.svg" alt="Adblock Plus">
+        </a>
+
+        <a id="navbar-donate" class="button" data-doclink="donate_frp_page" data-i18n="firstRun_donate" target="_blank" href="https://adblockplus.org/redirect?link=donate_frp_page&amp;lang=en-US">Donate</a>
+      </div>
+    </nav>
+
+    <main>
+      <header id="installation-status">
+        <img src="skin/icons/first-run/checkmark-header.svg" alt="">
+        <h1 data-i18n="firstRun_title">Installation Successful!</h1>
+        <p data-i18n="firstRun_subtitle">You just took control of your browser.</p>
+      </header>
+
+      <div id="content" class="container content">
+        <div id="warnings" class="container two-thirds">
+          <section data-warning="reinitialized">
+            <p id="warning-reinitialized" data-i18n="firstRun_warning_reinitialized">It seems that an issue caused all filters to be removed and we were unable to restore a backup. Therefore we had to reset your filters and Acceptable Ads settings. Please check your filter lists and Acceptable Ads settings in the <a>Adblock Plus options</a>.</p>
+          </section>
+
+          <section data-warning="dataCorrupted">
+            <p data-i18n="firstRun_warning_dataCorrupted_intro">Some users are experiencing an issue where this page opens each time their browser is launched. This issue can be resolved by uninstalling and reinstalling Adblock Plus:</p>
+            <ol>
+              <li data-i18n="firstRun_warning_dataCorrupted_step1">Open your browser's Extensions tab.</li>
+              <li data-i18n="firstRun_warning_dataCorrupted_step2">Locate Adblock Plus and remove it.</li>
+              <li id="dataCorrupted-reinstall" data-i18n="firstRun_warning_dataCorrupted_step3">Reinstall Adblock Plus from <a>adblockplus.org</a>.</li>
+            </ol>
+            <small id="dataCorrupted-support" data-i18n="firstRun_warning_dataCorrupted_note">If you still need help, contact us at <a data-i18n-index="0">support@adblockplus.org</a> or visit our <a data-i18n-index="1">Help Center</a>.</small>
+          </section>
+        </div>
+
+        <section class="column one-third">
+          <header class="section-header">
+            <img src="skin/icons/first-run/checkmark.svg" alt="">
+            <h2 data-i18n="firstRun_control_title">You're in control</h2>
+          </header>
+          <p id="control-description" class="column-description" data-i18n="firstRun_control_description">By default, you may see some nonintrusive ads that adhere to <a data-i18n-index="0" href="https://adblockplus.org/redirect?link=acceptable_ads_criteria&amp;lang=en-US" target="_blank">strict criteria</a>. We identify these ads as Acceptable Ads. Prefer to block all ads? <a data-i18n-index="1" href="https://adblockplus.org/redirect?link=acceptable_ads_opt_out&amp;lang=en-US" target="_blank">Turn off Acceptable Ads</a> in your <a data-i18n-index="2" href="#">Settings</a>.</p>
+        </section>
+
+        <section id="abb-promotion" class="column one-third">
+          <header class="section-header">
+            <img src="skin/icons/first-run/rocket.svg" alt="">
+            <h2 data-i18n="firstRun_browser_title">Adblock Browser app</h2>
+          </header>
+          <p class="column-description" data-i18n="firstRun_browser_description">From the team behind Adblock Plus, the most popular ad blocker for desktop browsers, Adblock Browser is now available for your Android and iOS devices.</p>
+          <div class="store-buttons">
+            <a class="store-button applestore-button" data-doclink="adblock_browser_ios_store" target="_blank" href="https://adblockplus.org/redirect?link=adblock_browser_ios_store&amp;lang=en-US">
+              <img src="skin/backgrounds/appstore.svg" data-i18n-alt="firstRun_browser_store_ios" alt="Available on the iTunes App Store">
+            </a>
+            <a class="store-button googleplay-button" data-doclink="adblock_browser_android_store" target="_blank" href="https://adblockplus.org/redirect?link=adblock_browser_android_store&amp;lang=en-US">
+              <img src="skin/backgrounds/googleplay.svg" data-i18n-alt="firstRun_browser_store_android" alt="Android app on Google Play">
+            </a>
+          </div>
+        </section>
+
+        <section class="column one-third">
+          <header class="section-header">
+            <img src="skin/icons/first-run/lock.svg" alt="">
+            <h2 data-i18n="firstRun_fair_title">Fair use</h2>
+          </header>
+          <p id="fair-description" class="column-description" data-i18n="firstRun_fair_description">We encourage you to make fair use of Adblock Plus and the option to whitelist websites. Depending on the filters you use, you understand and accept that unintentional results might occur (e.g. blocked content on a website). Refer to the <a data-i18n-index="0" href="https://adblockplus.org/redirect?link=terms&amp;lang=en-US" target="_blank">Terms of Use</a> for more information about fair use of Adblock Plus.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer id="footer" class="content">
+      <div class="container">
+        <p id="copyright-notice">Copyright © 2020 All rights reserved. Adblock Plus® is a registered trademark of <a data-i18n-index="0" href="https://adblockplus.org/redirect?link=eyeo&amp;lang=en-US" target="_blank">eyeo GmbH</a>.</p>
+      </div>
+    </footer>
+  
+
+</body></html>
