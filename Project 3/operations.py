@@ -28,8 +28,8 @@ def vectorization(startTime, filePaths):
       pages.append(page)
 
    vectorizingFinishedAt = time.time()
-
-   print("Vectorization completed in: %s seconds \n" % executionTime(vectorizingFinishedAt, startTime))
+   print("STATS:\n")
+   print("Vectorization:\n %s seconds \n" % executionTime(vectorizingFinishedAt, startTime))
    return pages
 
 # Input: execution starting time and vectorized pages
@@ -46,9 +46,9 @@ def clustering(startTime, pages):
    pagesClustered = 0
    for group in computedClusters:
       pagesClustered += len(group)
-
-   print("Clustering of {0} pages completed in: %s seconds \n" .format(pagesClustered) % executionTime(time.time(), clusteringStartedAt))
-   print("Total execution time: %s seconds \n" % executionTime(time.time(), startTime))
+   
+   print("Clustering:\n %s seconds \n" .format(pagesClustered) % executionTime(time.time(), clusteringStartedAt))
+   print("Total execution time:\n %s seconds \n" % executionTime(time.time(), startTime))
    return computedClusters
 
 # Input: Vectorized pages and computed clustes
@@ -68,5 +68,5 @@ def evaluation(pages, computedClusters):
 
    f1 = f1score(true_clusters, computedClusters)
 
-   print("F1 Metric value: {}\n".format(f1))
+   print("F1 Metric value:\n {}\n".format(f1))
 
