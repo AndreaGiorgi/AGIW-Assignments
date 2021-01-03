@@ -3,7 +3,14 @@ from bs4 import BeautifulSoup
 
 SHINGLE_SIZE = 10
 
-class Shingles:
+class ShinglesOnlyPage:
+
+    # Input: path and directory
+    # Support functions: shingleVectorizer, takes as input the shingles found in webapage's tags. 
+    #                    The webpage is read from file and given to tag extractor function.
+    # Ouput: New Shingles Class 
+
+
     def __init__(self, pathToFile, directory):
         #read the html file
 
@@ -21,12 +28,17 @@ class Shingles:
 
         #the hash vector of the shingles
         self.shingle_vector =  tuple(shingleVectorizer(shingles))
-        
+
+    # Input: Webpage
+    # Support libraries: BeautifulSoup, used for webpage's tags retrieval
+    # Output: Tags
+
     def extract_tags(self, content):
         soup = BeautifulSoup(content, "html.parser")
-
-        #the list of tags within the page ordered
         return [tag.name for tag in soup.find_all()]
+
+    # Input: Webpage's tags
+    # Ouput: List of maps, each map associate a tuple with each shingle 
 
     def find_shingles(self, tags):
         iterations = len(tags) - SHINGLE_SIZE+1
