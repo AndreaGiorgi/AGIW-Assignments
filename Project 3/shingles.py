@@ -8,7 +8,7 @@ class ShinglesOnlyPage:
     # Input: path and directory
     # Support functions: shingleVectorizer, takes as input the shingles found in webapage's tags. 
     #                    The webpage is read from file and given to tag extractor function.
-    # Ouput: New Shingles Class 
+    # Ouput: New ShinglesOnlyPage Class 
 
 
     def __init__(self, pathToFile, directory):
