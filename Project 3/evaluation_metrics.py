@@ -13,7 +13,9 @@ def cluster_to_pair(clusters):
             output.append(couple)
     return set(output)
 
-
+def executionTime(endTime, startTime):
+    elapsedTime = endTime - startTime
+    return elapsedTime
 
 def intersection(set1, set2):
     output = []

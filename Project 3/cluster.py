@@ -1,6 +1,5 @@
 from merge_sort import mergeSort
 
-
 THRESHOLD = 2
 
 #Find all the possible couples
