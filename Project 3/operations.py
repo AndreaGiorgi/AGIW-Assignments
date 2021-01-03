@@ -1,4 +1,4 @@
-from page import Page
+from shingles import Shingles
 from evaluation_metrics import executionTime, f1score
 from cluster import cluster
 import os, time, re
@@ -24,8 +24,8 @@ def vectorization(startTime, filePaths):
    pages = []
    for path in filePaths:
       tokens = re.split("\\\\", path)
-      page = Page(path, tokens[1])
-      pages.append(page)
+      pageShingles = Shingles(path, tokens[1])
+      pages.append(pageShingles)
 
    vectorizingFinishedAt = time.time()
 

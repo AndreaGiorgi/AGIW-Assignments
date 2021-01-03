@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 SHINGLE_SIZE = 10
 
-class Page:
+class Shingles:
     def __init__(self, pathToFile, directory):
         #read the html file
 
@@ -21,6 +21,8 @@ class Page:
 
         #the hash vector of the shingles
         self.shingle_vector =  tuple(shingleVectorizer(shingles))
+
+    def 
 
     def extract_tags(self, content):
         soup = BeautifulSoup(content, "html.parser")
@@ -47,4 +49,3 @@ class Page:
         shingles = list(map(lambda l: tuple(l), shingles))
 
         return shingles
-
