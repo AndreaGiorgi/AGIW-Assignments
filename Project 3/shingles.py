@@ -21,9 +21,7 @@ class Shingles:
 
         #the hash vector of the shingles
         self.shingle_vector =  tuple(shingleVectorizer(shingles))
-
-    def 
-
+gi
     def extract_tags(self, content):
         soup = BeautifulSoup(content, "html.parser")
 
