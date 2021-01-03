@@ -22,13 +22,6 @@ class Page:
         #the hash vector of the shingles
         self.shingle_vector =  tuple(shingleVectorizer(shingles))
 
-    def __repr__(self):
-        return "Page({0})".format(self.name)
-
-    def __str__(self):
-        return "Page({0})".format(self.name)
-
-
     def extract_tags(self, content):
         soup = BeautifulSoup(content, "html.parser")
 
@@ -36,7 +29,7 @@ class Page:
         return [tag.name for tag in soup.find_all()]
 
     def find_shingles(self, tags):
-        iterations = len(tags)- SHINGLE_SIZE+1
+        iterations = len(tags) - SHINGLE_SIZE+1
         if iterations <= 0:
             iterations = 1
 

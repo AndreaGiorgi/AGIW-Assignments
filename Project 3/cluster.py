@@ -53,7 +53,6 @@ def is_cover(shingle_vector, cover):
             return False
     return True
 
-
 """
 Find all the 8-shingle vectors and order them 
 performing merge sort algorithm
@@ -120,10 +119,6 @@ def decrementCounts(hashTable):
 
     return max_shingle_vectors
 
-
-
-
-
 """
 The main function of the clustering algorithm
 """
@@ -153,6 +148,6 @@ def cluster(pages):
     for key in clusters.keys():
         group = clusters[key]
         if len(group) != 0:
-            page_clusters.append((group))
+            page_clusters.append(group)
 
     return page_clusters
