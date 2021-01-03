@@ -6,6 +6,7 @@ def pipeline():
 	pages = operations.vectorization(startedAt, paths)
 	computedClusters =	operations.clustering(startedAt, pages)
 	operations.evaluation(pages, computedClusters)
-
+ 
 if __name__ == '__main__':
-   pipeline()
+    pipeline()
+    # pipelineTest()
