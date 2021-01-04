@@ -1,6 +1,6 @@
 import time, operations
 
-def exectutionPipeline():
+def executionPipeline():
 	startedAt = time.time()
 	paths = operations.getPaths()
 	vectorizedPages = operations.vectorization(startedAt, paths)
@@ -11,5 +11,5 @@ def testPipeline():
 	startedAt = time.time()	
  
 if __name__ == '__main__':
-    exectutionPipeline()
+    executionPipeline()
     #testPipeline()

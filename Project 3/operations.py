@@ -9,23 +9,23 @@ import os, time, re
 def getPaths():
 
    filePaths = []
-   for root, dirs, files in os.walk("pages"):
+   for root, _, files in os.walk("pages"):
       for name in files:
          filePaths.append(os.path.join(root, name))
 
    return filePaths
 
 # Input: execution starting time and webpages paths
-# Support libraries: re for split operation on each path ##TODO: spiegare bene
-# Support class: Page ##TODO: spiegare cos'è la classe page
+# Support libraries: re for split operation on each path 
+# Support class: PageShingles, it's a class which defines a page composed by only shingles
 # Ouput: Vectorized pages and execution time stats
 
 def vectorization(startTime, filePaths):
    pages = []
    for path in filePaths:
       tokens = re.split("\\\\", path)
-      shingleOnlyPage = PageShingles(path, tokens[1])
-      pages.append(shingleOnlyPage)
+      shinglePage = PageShingles(path, tokens[1])
+      pages.append(shinglePage)
 
    vectorizingFinishedAt = time.time()
    print("STATS:\n")
@@ -66,8 +66,6 @@ def evaluation(pages, computedClusters):
       groups[page.directory].append(page)
 
    true_clusters = list(groups.values())
-
    f1 = f1score(true_clusters, computedClusters)
-
    print("F1 Metric value:\n {}\n".format(f1))
 
