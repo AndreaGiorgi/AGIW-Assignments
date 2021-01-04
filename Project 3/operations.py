@@ -1,6 +1,6 @@
-from shingles import ShinglesOnlyPage
+from pageShingles import PageShingles
 from evaluation_metrics import executionTime, f1score
-from cluster import cluster
+from cluster_algorithm import startAlgorithm
 import os, time, re
 
 # Input: None
@@ -24,7 +24,7 @@ def vectorization(startTime, filePaths):
    pages = []
    for path in filePaths:
       tokens = re.split("\\\\", path)
-      shingleOnlyPage = ShinglesOnlyPage(path, tokens[1])
+      shingleOnlyPage = PageShingles(path, tokens[1])
       pages.append(shingleOnlyPage)
 
    vectorizingFinishedAt = time.time()
@@ -42,7 +42,7 @@ def clustering(startTime, pages):
    clusteringStartedAt = time.time()
 
    pagesClustered = 0
-   computedClusters = cluster(pages)
+   computedClusters = startAlgorithm(pages)
    for group in computedClusters:
       print(group)
       print("\n")
