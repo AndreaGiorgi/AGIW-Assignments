@@ -3,7 +3,6 @@
 # Word
 ~$*.doc*
 
-
 # Word Auto Backup File
 Backup of *.doc*
 
@@ -18,7 +17,7 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
-
+.vscode
 __pycache__/
 *.py[cod]
 *$py.class
