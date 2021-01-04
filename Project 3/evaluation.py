@@ -1,4 +1,3 @@
-
 def executionTime(endTime, startTime):
     elapsedTime = endTime - startTime
     return elapsedTime
@@ -39,7 +38,7 @@ def precision(idealClusters, computedClusters):
     falsePositive = len(difference(computedPairs, idealPairs))
     return truePositive/(truePositive + falsePositive)
 
-#Recall metric TP/(TP + FN)
+#Recall metric TP/(TP+FN)
 
 def recall(idealClusters, computedClusters):
     idealPairs = cluster2pairs(idealClusters)
@@ -48,7 +47,7 @@ def recall(idealClusters, computedClusters):
     falseNegative = len(difference(idealPairs, computedPairs))
     return truePositive/(truePositive + falseNegative)
 
-# F1 Measure metric, 2 * (Precison * Recall)/(Precision + Recall)
+# F1 Measure metric, 2*(Precison*Recall)/(Precision+Recall)
 
 def f1(precision, recall):
     return 2 * ((precision*recall)/(precision + recall))

@@ -4,7 +4,7 @@ def executionPipeline():
 	startedAt = time.time()
 	paths = operations.getPaths()
 	vectorizedPages = operations.vectorization(startedAt, paths)
-	computedClusters =	operations.clustering(startedAt, vectorizedPages)
+	computedClusters = operations.clustering(startedAt, vectorizedPages)
 	operations.evaluation(vectorizedPages, computedClusters)
  
 if __name__ == '__main__':

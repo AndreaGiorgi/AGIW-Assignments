@@ -7,12 +7,10 @@ import os, time, re
 # Ouput: Paths of webpages to cluster
 
 def getPaths():
-
    filePaths = []
    for root, _, files in os.walk("pages"):
       for name in files:
          filePaths.append(os.path.join(root, name))
-
    return filePaths
 
 # Input: execution starting time and webpages paths
@@ -26,11 +24,10 @@ def vectorization(startTime, filePaths):
       tokens = re.split("\\\\", path)
       shinglePage = PageShingles(path, tokens[1])
       pages.append(shinglePage)
-
    vectorizingFinishedAt = time.time()
+
    print("STATS:\n")
    print("Vectorization:\n %s seconds \n" % executionTime(vectorizingFinishedAt, startTime))
-
    return pages
 
 # Input: execution starting time and vectorized pages
@@ -38,9 +35,7 @@ def vectorization(startTime, filePaths):
 # Output: Computed clusters and execution time stats
 
 def clustering(startTime, pages):
-
    clusteringStartedAt = time.time()
-
    pagesClustered = 0
    computedClusters = startAlgorithm(pages)
    for group in computedClusters:
@@ -55,15 +50,13 @@ def clustering(startTime, pages):
 # Output: F1 Metric value ##TODO: implementare precision e recall
 
 def evaluation(pages, computedClusters):
-
    groups = {}
    for page in pages:
       groups[page.directory] = []
-
    for page in pages:
       groups[page.directory].append(page)
-
    idealClusters = list(groups.values())
+
    precisionValue = precision(idealClusters, computedClusters)
    recallValue = recall(idealClusters, computedClusters)
    f1Value = f1(precisionValue, recallValue)

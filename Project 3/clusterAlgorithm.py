@@ -17,10 +17,9 @@ WILDCARD = None
 
 def initMaskedVectors(shingleVector):
 	mskVectors = []
-
 	#8/8
 	mskVectors.append(shingleVector)
-
+	
 	#7/8
 	for element in shingleVector:
 		vector = []
