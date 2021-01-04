@@ -6,7 +6,7 @@ import os, time, re
 # Input: None
 # Ouput: Paths of webpages to cluster
 
-def initialization():
+def getPaths():
 
    filePaths = []
    for root, dirs, files in os.walk("pages"):
@@ -30,6 +30,7 @@ def vectorization(startTime, filePaths):
    vectorizingFinishedAt = time.time()
    print("STATS:\n")
    print("Vectorization:\n %s seconds \n" % executionTime(vectorizingFinishedAt, startTime))
+
    return pages
 
 # Input: execution starting time and vectorized pages
@@ -39,12 +40,12 @@ def vectorization(startTime, filePaths):
 def clustering(startTime, pages):
 
    clusteringStartedAt = time.time()
-   computedClusters = cluster(pages)
-
-   # print(group) in for loop if you want to see all created groups
 
    pagesClustered = 0
+   computedClusters = cluster(pages)
    for group in computedClusters:
+      print(group)
+      print("\n")
       pagesClustered += len(group)
    
    print("Clustering:\n %s seconds \n" .format(pagesClustered) % executionTime(time.time(), clusteringStartedAt))

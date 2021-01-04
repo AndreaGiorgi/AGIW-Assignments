@@ -1,12 +1,15 @@
 import time, operations
 
-def pipeline():
+def exectutionPipeline():
 	startedAt = time.time()
-	paths = operations.initialization()
-	pages = operations.vectorization(startedAt, paths)
-	computedClusters =	operations.clustering(startedAt, pages)
-	operations.evaluation(pages, computedClusters)
+	paths = operations.getPaths()
+	vectorizedPages = operations.vectorization(startedAt, paths)
+	computedClusters =	operations.clustering(startedAt, vectorizedPages)
+	operations.evaluation(vectorizedPages, computedClusters)
+
+def testPipeline():
+	startedAt = time.time()	
  
 if __name__ == '__main__':
-    pipeline()
-    # pipelineTest()
+    exectutionPipeline()
+    #testPipeline()

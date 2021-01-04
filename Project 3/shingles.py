@@ -29,6 +29,15 @@ class ShinglesOnlyPage:
         #the hash vector of the shingles
         self.shingle_vector =  tuple(shingleVectorizer(shingles))
 
+    # Input: self
+    # Output: string representation of Shingles object, usefull when printing groups of pages
+
+    def __repr__(self):
+        return "Webpage[{0}]".format(self.name)
+
+    def __str__(self):
+        return "Webpage[{0}]".format(self.name)
+
     # Input: Webpage
     # Support libraries: BeautifulSoup, used for webpage's tags retrieval
     # Output: Tags
