@@ -1,5 +1,5 @@
 from pageShingles import PageShingles
-from evaluation_metrics import f1, executionTime, precision, recall
+from evaluation import f1, executionTime, precision, recall
 from clusterAlgorithm import startAlgorithm
 import os, time, re
 
@@ -66,7 +66,7 @@ def evaluation(pages, computedClusters):
    idealClusters = list(groups.values())
    precisionValue = precision(idealClusters, computedClusters)
    recallValue = recall(idealClusters, computedClusters)
-   f1Value = f1(idealClusters, computedClusters)
+   f1Value = f1(precisionValue, recallValue)
    print("Precision Metric value:\n {}\n".format(precisionValue))
    print("Recall Metric value:\n {}\n".format(recallValue))
    print("F1 Metric value:\n {}\n".format(f1Value))
