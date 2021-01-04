@@ -1,16 +1,15 @@
-def get_all_possible_couples(elements):
-    couples = []
-    for elem1 in elements:
-        for elem2 in elements:
-            if(elem2,elem1) not in couples and elem1 != elem2:
-                couples.append((elem1, elem2))
-    return couples
 
-def cluster_to_pair(clusters):
+def cluster2pairs(clusters):
     output = []
     for cluster in clusters:
-        for couple in get_all_possible_couples(cluster):
+        combinations = []
+        for i in cluster:
+            for j in cluster:
+                if(j,i) not in combinations and i != j:
+                    combinations.append((i,j))
+        for couple in combinations:
             output.append(couple)
+
     return set(output)
 
 def executionTime(endTime, startTime):
@@ -36,11 +35,26 @@ def difference(set1, set2):
 """
 Computes the f1score for pair clustering 
 """
-def f1score(true_clusters, actual_clusters):
-    couples1 = cluster_to_pair(true_clusters)
-    couples2 = cluster_to_pair(actual_clusters)
-    inter = len(intersection(couples1,couples2))
-    diff1 = len(difference(couples1,couples2))
-    diff2 = len(difference(couples2,couples1))
-    return (2 * inter) /(2 * inter + diff1 + diff2)
+
+def precision(idealClusters, computedClusters):
+    idealPairs = cluster2pairs(idealClusters)
+    computedPairs = cluster2pairs(computedClusters)
+    truePositive = len(intersection(idealPairs, computedPairs))
+    falsePositive = len(difference(computedPairs, idealPairs))
+    return truePositive/(truePositive + falsePositive)
+
+def recall(idealClusters, computedClusters):
+    idealPairs = cluster2pairs(idealClusters)
+    computedPairs = cluster2pairs(computedClusters)
+    truePositive = len(intersection(idealPairs, computedPairs))
+    falseNegative = len(difference(idealPairs, computedPairs))
+    return truePositive/(truePositive + falseNegative)
+
+def f1(idealCluster, computedClusters):
+    idealPairs = cluster2pairs(idealCluster)
+    computedPairs = cluster2pairs(computedClusters)
+    truePositive = len(intersection(idealPairs, computedPairs))
+    falseNegative = len(difference(idealPairs, computedPairs))
+    falsePositive = len(difference(computedPairs, idealPairs))
+    return (2 * truePositive) /(2 * truePositive + falsePositive + falseNegative)
 
