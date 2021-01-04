@@ -1,6 +1,6 @@
 from pageShingles import PageShingles
 from evaluation_metrics import executionTime, f1score
-from cluster_algorithm import startAlgorithm
+from clusterAlgorithm import startAlgorithm
 import os, time, re
 
 # Input: None
