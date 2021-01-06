@@ -1,4 +1,5 @@
 import hashlib
+from pearhash import PearsonHasher
 
 # Input: position inside shingles set
 # Support Libraries: hashlib
@@ -8,11 +9,29 @@ import hashlib
 
 def hashFunction(n):
   def hash(x):
-    output = hashlib.sha256(str(x).encode('utf-8')).hexdigest()
+    x = hashlib.sha256(str(x).encode('utf-8')).hexdigest()
     for i in range(n):
-      output = hashlib.sha256(str(output).encode('utf-8')).hexdigest()
-    return output[:8]
+      x = hashlib.sha256(str(x).encode('utf-8')).hexdigest()
+    b = bytes(x[:8], encoding='utf-8')
+    output = int.from_bytes(b, byteorder='big', signed=False)
+    return output
   return hash
+
+
+## ANDREA: Prima prova di hash 8Byte dove ogni shingle ha un hash di 1Byte
+## Test 1: Vectorization: 64sec [Molto Lento]
+
+def hashFunction_1byteShingle(n):
+  def hash(x):
+    hashFunction = PearsonHasher(1)
+    x = "".join(x)
+    b = hashFunction.hash(bytes(x, encoding='utf-8'))
+    for i in range(n):
+      b = hashFunction.hash(b)
+    output = int.from_bytes(b, byteorder='big', signed=False)
+    return output
+  return hash
+
 
 # Input: shingles set
 # Support Function: hashFunction
