@@ -10,9 +10,9 @@ from pearhash import PearsonHasher
 
 ## TEST 1: SHA256 with big dataset key mismatch in cluster algorithm
 ## TEST 2: SHA1 with big dataset with 2K pages: OK! -> Switch to SHA1: Vectorization in 373sec without key errors in cluster algorithm
-## TEST 3: SHA1 with entire TMDB dataset (2K Movies, 2K TVSeries, 1.5K Actors): Over 2h of execution. abort.
+## TEST 3: SHA1 with entire TMDB dataset (2K Movies, 2K TVSeries, 1.5K Actors): Over 8h of execution. abort.
 ## TEST 4: BLAKE2b algorithm implementation, fastest than SHA1 in theory: 1K Movies, 1K TVSeries, 1K Actors OK! 301sec Vectorization
-## TEST 5: BLAKE2b algorithm implementation with entire TMDB dataset: TODO 
+## TEST 5: BLAKE2b algorithm implementation with all dataset: It works and it's kinda fast, official move to BLAKE2b algorithm 
 
 def hashFunction(n):
   def hash(x):
@@ -21,20 +21,6 @@ def hashFunction(n):
       output = hashlib.blake2b(str(x).encode('utf-8')).hexdigest()
     return output[:8]
   return hash
-
-## Test 1: Vectorization small dataset: 64sec 
-## Test 2: Vectorization big dataset: No key error but executed in 2441.22 sec
-
-def hashFunction_1ByteShingle(n):
-  def hash(x):
-    hashFunction = PearsonHasher(1)
-    output = "".join(x)
-    b = hashFunction.hash(bytes(output, encoding='utf-8'))
-    while range(n):
-      b = hashFunction.hash(b)
-    return output[:8]
-  return hash
-
 
 # Input: shingles set
 # Support Function: hashFunction
