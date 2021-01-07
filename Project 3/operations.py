@@ -1,14 +1,14 @@
 from pageShingles import PageShingles
-from evaluation import f1, executionTime, precision, recall
+from evaluation import evaluationPipeline, f1, executionTime, precision, recall
 from clusterAlgorithm import startAlgorithm
 import os, time, re
 
 # Input: None
 # Ouput: Paths of webpages to cluster
 
-def getPaths():
+def getPaths(path):
    filePaths = []
-   for root, _, files in os.walk("Dataset_TMDB"):
+   for root, _, files in os.walk(path):
       for name in files:
          filePaths.append(os.path.join(root, name))
    return filePaths
@@ -47,7 +47,7 @@ def clustering(startTime, pages):
 
 # Input: Vectorized pages and computed clustes
 # Support functions: F1Score from metrics, it computes the F1 value
-# Output: F1 Metric value ##TODO: implementare precision e recall
+# Output: F1 Metric value
 
 def evaluation(pages, computedClusters):
    groups = {}
@@ -56,11 +56,6 @@ def evaluation(pages, computedClusters):
    for page in pages:
       groups[page.directory].append(page)
    idealClusters = list(groups.values())
+   evaluationPipeline(idealClusters, computedClusters)
 
-   precisionValue = precision(idealClusters, computedClusters)
-   recallValue = recall(idealClusters, computedClusters)
-   f1Value = f1(precisionValue, recallValue)
-   print("Precision Metric value:\n {}\n".format(precisionValue))
-   print("Recall Metric value:\n {}\n".format(recallValue))
-   print("F1 Metric value:\n {}\n".format(f1Value))
 

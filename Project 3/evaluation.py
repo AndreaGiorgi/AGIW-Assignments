@@ -1,6 +1,5 @@
 import itertools
 
-
 def executionTime(endTime, startTime):
     elapsedTime = endTime - startTime
     return elapsedTime
@@ -29,18 +28,14 @@ def difference(set1, set2):
 
 # Precision metric TP/(TP+FP)
 
-def precision(idealClusters, computedClusters):
-    idealPairs = cluster2pairs(idealClusters)
-    computedPairs = cluster2pairs(computedClusters)
+def precision(idealPairs, computedPairs):
     truePositive = len(intersection(idealPairs, computedPairs))
     falsePositive = len(difference(computedPairs, idealPairs))
     return truePositive/(truePositive + falsePositive)
 
 #Recall metric TP/(TP+FN)
 
-def recall(idealClusters, computedClusters):
-    idealPairs = cluster2pairs(idealClusters)
-    computedPairs = cluster2pairs(computedClusters)
+def recall(idealPairs, computedPairs):
     truePositive = len(intersection(idealPairs, computedPairs))
     falseNegative = len(difference(idealPairs, computedPairs))
     return truePositive/(truePositive + falseNegative)
@@ -50,3 +45,12 @@ def recall(idealClusters, computedClusters):
 def f1(precision, recall):
     return 2 * ((precision*recall)/(precision + recall))
 
+def evaluationPipeline(ideal, computed):
+    idealPairs = cluster2pairs(ideal)
+    computedPairs = cluster2pairs(computed)
+    precisionValue = precision(idealPairs,computedPairs)
+    recallValue = recall(idealPairs, computedPairs)
+
+    print("Precision Metric value:\n {}\n".format(precisionValue))
+    print("Recall Metric value:\n {}\n".format(recallValue))
+    print("F1 Metric value:\n {}\n".format(f1(precisionValue, recallValue)))
