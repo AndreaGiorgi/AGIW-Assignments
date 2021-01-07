@@ -1,3 +1,6 @@
+import itertools
+
+
 def executionTime(endTime, startTime):
     elapsedTime = endTime - startTime
     return elapsedTime
@@ -5,14 +8,9 @@ def executionTime(endTime, startTime):
 def cluster2pairs(clusters):
     output = []
     for cluster in clusters:
-        combinations = []
-        for i in cluster:
-            for j in cluster:
-                if(j,i) not in combinations and i != j:
-                    combinations.append((i,j))
+        combinations = itertools.combinations(cluster, 2)
         for couple in combinations:
             output.append(couple)
-
     return set(output)
 
 def intersection(set1, set2):

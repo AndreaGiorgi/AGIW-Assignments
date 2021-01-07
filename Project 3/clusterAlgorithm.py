@@ -1,4 +1,5 @@
 from merge_sort import mergeSort
+import itertools
 
 # Algorithm structure
 #
@@ -10,7 +11,7 @@ from merge_sort import mergeSort
 # 	Third pass: Final assignments of pages to cluster without adjusting vector count	
 # 
 
-THRESHOLD = 2 #Should be 20 when we parse all 3K pages
+THRESHOLD = 2
 WILDCARD = None
 
 # FIRST PASS 
@@ -74,27 +75,27 @@ def isCoverVector(shingleVector, coverCandidate):
 
 
 def decrementCounts(hashTable):
-
 	eightShingleVectors = list(filter(lambda x: (WILDCARD not in x), hashTable.keys()))
-	mergeSort(eightShingleVectors, 0, len(eightShingleVectors) -1, hashTable)
+	mergeSort(eightShingleVectors, 0, len(eightShingleVectors)-1, hashTable)
+
 	maxShingleVectors = {}
 
-	for esv in eightShingleVectors:
-		esv = tuple(esv)
+	for shingle in eightShingleVectors:
+		shingle = tuple(shingle)
 		max = 0
 		maxShingleVector = None
 
 		for shingleVector in hashTable.keys():
-			if isCoverVector(esv, shingleVector) and max < hashTable[shingleVector]:
+			if isCoverVector(shingle, shingleVector) and max < hashTable[shingleVector]:
 				max = hashTable[shingleVector]
 				maxShingleVector = shingleVector
 
-		maxShingleVectors[esv] = maxShingleVector
+		maxShingleVectors[shingle] = maxShingleVector
 
 		for shingleVector in hashTable.keys():
-			if isCoverVector(esv, shingleVector) and maxShingleVector != shingleVector:
+			if isCoverVector(shingle, shingleVector) and maxShingleVector != shingleVector:
 				aux = hashTable[shingleVector]
-				aux -= hashTable[esv]
+				aux -= hashTable[shingle]
 				if aux < 0:
 					aux = 0
 				hashTable[shingleVector] = aux

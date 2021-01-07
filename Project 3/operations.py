@@ -8,7 +8,7 @@ import os, time, re
 
 def getPaths():
    filePaths = []
-   for root, _, files in os.walk("pages"):
+   for root, _, files in os.walk("Dataset_TMDB"):
       for name in files:
          filePaths.append(os.path.join(root, name))
    return filePaths

@@ -17,12 +17,12 @@ class PageShingles:
 
         self.directory = directory
         file =  open(pathToFile, "r", encoding="UTF-8")
-        self.name = pathToFile.replace("pages\\","").replace(directory + "\\", "").replace("The Movie Database (TMDb).html","")
+        self.name = pathToFile.replace("Dataset_TMDB\\","").replace(directory + "\\", "")
         
         content = file.read()
         tags = self.extractTags(content)
         shingles = self.findShingles(tags)
-        self.shingleVector =  tuple(shingleVectorizer(shingles))
+        self.shingleVector = tuple(shingleVectorizer(shingles))
         
         file.close()
 
