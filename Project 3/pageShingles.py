@@ -26,15 +26,6 @@ class PageShingles:
         
         file.close()
 
-    # Input: self
-    # Output: string representation of PageShingles object, usefull when printing groups of webpages
-
-    def __repr__(self):
-        return "Webpage[{0}]".format(self.name)
-
-    def __str__(self):
-        return "Webpage[{0}]".format(self.name)
-
     # Input: Webpage
     # Support libraries: BeautifulSoup, used for webpage's tags retrieval
     # Output: Tags

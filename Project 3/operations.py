@@ -8,9 +8,14 @@ import os, time, re
 
 def getPaths(path):
    filePaths = []
+   numPagesFound = 0
    for root, _, files in os.walk(path):
       for name in files:
          filePaths.append(os.path.join(root, name))
+         numPagesFound += 1
+
+   print("Execution Statistics of : \n" + path)
+   print("\n Loaded from " + path +":\n %s pages \n" % numPagesFound)
    return filePaths
 
 # Input: execution starting time and webpages paths
@@ -26,7 +31,6 @@ def vectorization(startTime, filePaths):
       pages.append(shinglePage)
    vectorizingFinishedAt = time.time()
 
-   print("STATS:\n")
    print("Vectorization:\n %s seconds \n" % executionTime(vectorizingFinishedAt, startTime))
    return pages
 
@@ -41,7 +45,8 @@ def clustering(startTime, pages):
    for group in computedClusters:
       pagesClustered += len(group)
    
-   print("Clustering:\n %s seconds \n" .format(pagesClustered) % executionTime(time.time(), clusteringStartedAt))
+   print("Pages Processed: \n %s \n" % format(pagesClustered))
+   print("Clustering:\n %s seconds \n" % executionTime(time.time(), clusteringStartedAt))
    print("Total execution time:\n %s seconds \n" % executionTime(time.time(), startTime))
    return computedClusters
 
