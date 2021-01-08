@@ -1,4 +1,4 @@
-from merge_sort import mergeSort
+from mergeSort import mergeSort
 import itertools
 
 # Algorithm structure
@@ -76,7 +76,7 @@ def isCoverVector(shingleVector, coverCandidate):
 
 def decrementCounts(hashTable):
 	eightShingleVectors = list(filter(lambda x: (WILDCARD not in x), hashTable.keys()))
-	mergeSort(eightShingleVectors, 0, len(eightShingleVectors)-1, hashTable)
+	merge_sort(eightShingleVectors, 0, len(eightShingleVectors)-1, hashTable)
 
 	maxShingleVectors = {}
 

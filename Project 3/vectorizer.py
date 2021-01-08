@@ -3,8 +3,10 @@ from pearhash import PearsonHasher
 
 # Input: position inside shingles set
 # Support Libraries: hashlib
-# Support Function: hash, it generates the hash function using SHA1 algorithm, SHA256\SHA512\SHA3_512 and SHA3_256 algorithms
-#         are inefficient and their complexity is not needed here.
+# Support Function: hash, it generates the hash function using Blake2b algorithm, SHA256\SHA512\SHA3_512 and SHA3_256 algorithms
+#         are inefficient and their complexity is not needed here. SHA1 is efficient, it's known to not be a safe cryptographic
+#         function, but here we need only a data digest. SHA1 support here it's dropped since it cause key mismatch during
+#         cluster operations. 
 # Output: returns an hash function to use for each shingle, each hash function is unique
 
 
