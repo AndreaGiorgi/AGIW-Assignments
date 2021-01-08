@@ -1,5 +1,4 @@
 from mergeSort import mergeSort
-import itertools
 
 # Algorithm structure
 #
@@ -11,7 +10,7 @@ import itertools
 # 	Third pass: Final assignments of pages to cluster without adjusting vector count	
 # 
 
-THRESHOLD = 2
+THRESHOLD = 20
 WILDCARD = None
 
 # FIRST PASS 

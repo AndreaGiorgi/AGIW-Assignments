@@ -14,7 +14,7 @@ def getPaths(path):
          filePaths.append(os.path.join(root, name))
          numPagesFound += 1
 
-   print("Execution Statistics of : \n" + path)
+   print("Execution Statistics of :" + path)
    print("\n Loaded from " + path +":\n %s pages \n" % numPagesFound)
    return filePaths
 
