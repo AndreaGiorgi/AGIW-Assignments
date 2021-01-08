@@ -1,5 +1,5 @@
 from pageShingles import PageShingles
-from evaluation import evaluationPipeline, f1, executionTime, precision, recall
+from evaluation import evaluationPipeline, executionTime
 from clusterAlgorithm import startAlgorithm
 import os, time, re
 
