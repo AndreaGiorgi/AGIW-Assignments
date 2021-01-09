@@ -2,7 +2,7 @@
 
 This project is related to implement a webpage linker using wrapping techniques. 
 
-REQUIREMENTS
+Requirements
 ------------
 
 This project requires the following modules:
