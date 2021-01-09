@@ -1,11 +1,5 @@
 # Project 3: Vertx Cluster Algorithm
 
- * Introduction
- * Requirements
- * How to use
- * Testing
- * Maintainers
- 
 Introduction
 ------------
 Vertex is a Wrapper Induction system developed at Yahoo! for extracting structured records from template-based Web pages. Vertex employs a host of novel algorithms for (1) Grouping similar structured pages in a Web site, (2) Picking the appropriate sample pages for wrapper inference, (3) Learning XPath-based extraction rules that are robust to variations in site structure, (4) Detecting site changes by monitoring sample pages, and (5) Optimizing editorial costs by reusing rules
