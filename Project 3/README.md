@@ -3,7 +3,7 @@
  * Introduction
  * Requirements
  * How to use
- * FAQ
+ * Testing
  * Maintainers
  
 Introduction
