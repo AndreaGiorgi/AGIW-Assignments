@@ -18,6 +18,8 @@ This project requires some specific modules:
 How to use
 ------------
 
+Firstly open a terminal session inside project directory and execute ```pip install -r requirements.txt```, this will install any necessery module not present in current python installation.
+
 Using an IDE, like vscode, open pipeline.py and run. It will ask an user input for which dataset to use. During the execution it will show execution statistics and evaluation metrics
 
 Testing
