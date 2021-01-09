@@ -131,7 +131,6 @@ def createClusters(hashTable, pages, maxShingleVectors):
 # Algorithm Pipeline
 
 def startAlgorithm(pages):
-
 	hashTable = {}
 	initMaskedhashTables(pages, hashTable)
 	maxShingleVectors = decrementCounts(hashTable)
