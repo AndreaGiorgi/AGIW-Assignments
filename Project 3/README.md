@@ -36,6 +36,5 @@ Using an IDE, like vscode, open pipelineTest.py and run. Using multiprocessing i
 Maintainers
 ------------
 
-Andrea Giorgi
-
-Filippo De Marco
+- Andrea Giorgi
+- Filippo De Marco
