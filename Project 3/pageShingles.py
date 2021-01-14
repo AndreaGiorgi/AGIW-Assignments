@@ -46,10 +46,8 @@ class PageShingles:
         start_index = 0
         for i in range(iterations):
             shingle = []
-            current_step = 0
-            while current_step < SHINGLE_LEN:
-                shingle.append(tags[start_index + current_step])
-                current_step += 1
+            for i in range(SHINGLE_LEN):
+                shingle.append(tags[start_index + i])
             shingles.append(shingle)
             start_index += 1
 
