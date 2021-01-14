@@ -11,9 +11,10 @@ import hashlib
 
 ## TEST 1: SHA256 with big dataset key mismatch in cluster algorithm
 ## TEST 2: SHA1 with big dataset with 2K pages: OK! -> Switch to SHA1: Vectorization in 373sec without key errors in cluster algorithm
-## TEST 3: SHA1 with entire TMDB dataset (2K Movies, 2K TVSeries, 1.5K Actors): Over 8h of execution. abort.
+## TEST 3: SHA1 with entire TMDB dataset (2K Movies, 2K TVSeries, 1.5K Actors): Over 18h of execution. abort.
 ## TEST 4: BLAKE2b algorithm implementation, faster than SHA1 in theory: 1K Movies, 1K TVSeries, 1K Actors OK! 301sec Vectorization
-## TEST 5: BLAKE2b algorithm implementation with all dataset: It works and it's kinda fast, official move to BLAKE2b algorithm 
+## TEST 5: BLAKE2b algorithm implementation with all dataset: It works and it's kinda fast, official move to BLAKE2b algorithm
+## TEST 6: Change while loop in for loop, for operator in Python is faster and better optimized comparing to while operator.  
 
 def hashFunction(n):
   def hash(x):

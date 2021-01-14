@@ -17,8 +17,6 @@ class PageShingles:
 
         self.directory = directory
         file =  open(pathToFile, "r", encoding="UTF-8")
-        self.name = pathToFile.replace("Dataset_TMDB\\","").replace(directory + "\\", "")
-        
         content = file.read()
         tags = self.extractTags(content)
         shingles = self.findShingles(tags)
