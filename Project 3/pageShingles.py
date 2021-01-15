@@ -16,12 +16,11 @@ class PageShingles:
     def __init__(self, pathToFile, directory):
 
         self.directory = directory
-        file =  open(pathToFile, "r", encoding="UTF-8")
+        file = open(pathToFile, "r", encoding="UTF-8")
         content = file.read()
         tags = self.extractTags(content)
         shingles = self.findShingles(tags)
         self.shingleVector = tuple(shingleVectorizer(shingles))
-        
         file.close()
 
     # Input: Webpage
@@ -34,7 +33,7 @@ class PageShingles:
 
     # Input: Webpage's tags
     # For Loop: defines shingle list and inserts this list inside shingles list. 
-    # While Loop: for each step allowed insert a tag inside shingle list
+    # For Loop: for each step allowed insert a tag inside shingle list
     # Ouput: List of maps, each map associate a tuple with each shingle 
 
     def findShingles(self, tags):

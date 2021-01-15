@@ -50,7 +50,7 @@ def initMaskedVectors(shingleVector):
 	return mskVectors
 
 
-def initMaskedhashTables(pages, hashTable):
+def initMaskedHashTables(pages, hashTable):
 	for page in pages:
 		shingleVector = page.shingleVector
 		maskedShingleVectors = initMaskedVectors(shingleVector)
@@ -132,6 +132,6 @@ def createClusters(hashTable, pages, maxShingleVectors):
 
 def startAlgorithm(pages):
 	hashTable = {}
-	initMaskedhashTables(pages, hashTable)
+	initMaskedHashTables(pages, hashTable)
 	maxShingleVectors = decrementCounts(hashTable)
 	return createClusters(hashTable, pages, maxShingleVectors)
