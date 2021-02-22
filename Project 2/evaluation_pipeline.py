@@ -1,7 +1,5 @@
 
-class Evaluation:
-
-	def eval(self, S1S2Pairs):
+def eval(S1S2Pairs):
 
 		totalPairs = 0  
 		elementsEvalued = 1 
@@ -21,3 +19,6 @@ class Evaluation:
 		print("Precision: " + str(precisionValue))
 		print("\nRecall: " + str(recallValue))
 		print("\nF1: "+ str(f1Value) + '\n')
+  
+def evaluation_pipeline(pairs):
+    eval(pairs)

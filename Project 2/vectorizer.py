@@ -1,12 +1,11 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 class Vectorizer:
-
+    
     def fit_transform(self, html):
 
         vectorizer = TfidfVectorizer(stop_words = "english", max_df = 0.80)
         vectors = vectorizer.fit_transform(html)
-
         vectorizedHTML = []
 
         for i in range(0, len(html)):

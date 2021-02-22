@@ -1,6 +1,4 @@
-##
 class PageAllignament:
-
 
     def intersect(self, S1_labels, S2_labels):
             
@@ -16,7 +14,6 @@ class PageAllignament:
     def allignSources(self, S1, S2):
 
         pairs = []
-        
         for i in range(0, len(S1)):
             elementS1 = S1[i]
             matches = []
@@ -26,7 +23,6 @@ class PageAllignament:
                 elementS2 = S2[j]
                 filteredS2 = self.filter(elementS2, 0.05)
                 matches.append(self.intersect(filteredS1, filteredS2))
-
             maxMatch = max(matches)
             
             # If maxMatch is more than one it means that at least one label match has been found
