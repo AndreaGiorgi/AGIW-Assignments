@@ -24,7 +24,7 @@ def startAnalysis(folder, S1_path, S2_path):
 def pipeline():
     startAnalysis('dataset', 'NBA', 'ROTOWORLD')
     startAnalysis('dataset', 'NBA', 'REALGM')
-    startAnalysis('dataset', 'ROTOWORLD', 'REALGM')
+    startAnalysis('dataset', 'REALGM', 'ROTOWORLD')
     
 
 if __name__ == '__main__':
