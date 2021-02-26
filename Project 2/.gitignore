@@ -1,8 +1,8 @@
 *.tmp
+*.pdf
 
 # Word
 ~$*.doc*
-
 
 # Word Auto Backup File
 Backup of *.doc*
