@@ -147,3 +147,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Project specific
+Dataset_G2R\
+Dataset_Study
+Dataset_TMDB
