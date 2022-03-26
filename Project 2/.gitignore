@@ -149,6 +149,6 @@ dmypy.json
 .pyre/
 
 #Project specific
-Dataset_G2R\
+Dataset_G2R
 Dataset_Study
 Dataset_TMDB
